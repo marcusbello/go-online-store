@@ -14,7 +14,7 @@ func DBConnect() {
 		panic(err)
 	}
 
-	dbMigrate := db.AutoMigrate(&models.User{}, &models.Product{}, &models.Category{}, &models.UserRole{}, &models.UserAddress{})
+	dbMigrate := db.AutoMigrate(&models.User{}, &models.UserRole{}, &models.Profile{})
 	if dbMigrate != nil {
 		panic(dbMigrate)
 	}
