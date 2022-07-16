@@ -7,3 +7,7 @@ func GetAllUsers(c *gin.Context) {
 		"data": "Hello World From User page",
 	})
 }
+
+func AddNewUser(c *gin.Context) {
+
+}
