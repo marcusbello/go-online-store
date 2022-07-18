@@ -4,20 +4,13 @@ import (
 	"gorm.io/gorm"
 )
 
-type UserRole struct {
-	gorm.Model
-	Name   string `json:"name" gorm:"default:member"`
-	UserID uint
-}
-
 type User struct {
 	gorm.Model
-	UserName string   `json:"user_name"`
-	Email    string   `json:"email"`
-	Password string   `json:"password"`
-	Token    string   `json:"token"`
-	UserRole UserRole `json:"user_role"`
-	Profile  Profile  `json:"profile"`
+	Email    string  `json:"email"`
+	Password string  `json:"password"`
+	Token    string  `json:"token"`
+	UserRole string  `json:"user_role" gorm:"default:member"`
+	Profile  Profile `json:"profile"`
 }
 
 type Profile struct {

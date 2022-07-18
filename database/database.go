@@ -13,8 +13,10 @@ func DBConnect() {
 	if err != nil {
 		panic(err)
 	}
-
-	dbMigrate := db.AutoMigrate(&models.User{}, &models.UserRole{}, &models.Profile{})
+	dbDropTable := db.Migrator().DropTable(&models.User{}, &models.Profile{}, &models.Product{}, &models.Category{})
+	if dbDropTable != nil {
+	}
+	dbMigrate := db.AutoMigrate(&models.User{}, &models.Profile{}, &models.Product{}, &models.Category{})
 	if dbMigrate != nil {
 		panic(dbMigrate)
 	}
